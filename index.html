@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merged Navbar and Sidebar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animation de transition pour la navbar */
+    
+    .navbar-transition {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .fadeIn {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Sidebar (Mobile uniquement) -->
+  <div
+    id="sidebar"
+    class="fixed top-0 left-0 h-full w-64 bg-white text-black transform -translate-x-full transition-transform duration-300 shadow-lg z-50"
+  >
+    <div class="p-6">
+      <h3 class="text-lg font-bold mb-4">Menu</h3>
+      <ul class="space-y-4">
+        <li>
+          <a href="#" class="hover:underline hover:text-blue-500 transition">Home</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline hover:text-blue-500 transition">About</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline hover:text-blue-500 transition">Services</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline hover:text-blue-500 transition">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <div
+  class="fixed top-0 left-0 w-full lg:bg-blue-700 lg:text-white sm:bg-white sm:text-black navbar-transition z-50"
+>
+</div>
+  <header
+    id="main-header"
+    class="fixed top-0 left-0 w-full lg:bg-blue-700 lg:text-white sm:bg-white sm:text-black navbar-transition z-50"
+  >
+    <div class="flex justify-between items-center px-6 py-4">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="./vite.svg" alt="Logo" class="h-10 z-0" />
+        <span class="ml-3 font-bold hidden lg:block">Anime Shipping</span>
+      </div>
+
+      <!-- Menu Hamburger (Mobile uniquement) -->
+      <div id="sidebar-toggler" class="lg:hidden cursor-pointer">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6h16.5M3.75 12h16.5M3.75 18h16.5"
+          />
+        </svg>
+      </div>
+
+      <!-- Liens principaux (Desktop uniquement) -->
+      <nav class="hidden lg:flex space-x-6 z-50">
+        <a href="#" class="hover:underline hover:text-blue-300">Home</a>
+        <a href="#" class="hover:underline hover:text-blue-300">About</a>
+        <a href="#" class="hover:underline hover:text-blue-300">Services</a>
+        <a href="#" class="hover:underline hover:text-blue-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section avec animation de texte et image de fond -->
+  <section
+    class="w-full h-[500px] bg-cover bg-center mt-16 lg:mt-20"
+    style="background-image: url('./AnimePicture/naruto.jpg');"
+  >
+    <div class="flex justify-center items-center h-full bg-black/50">
+      <div class="text-center space-y-6">
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 1
+          </button>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 2
+          </button>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 3
+          </button>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 4
+          </button>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 5
+          </button>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 6
+          </button>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 hover:underline">
+            Button 7
+          </button>
+        </div>
+        <h1 class="text-white text-3xl lg:text-5xl font-bold">
+            WE SHIP FROM&nbsp;
+            <span id="animated-text" class="text-blue-400"></span>
+        </h1>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="w-full bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <!-- Icon -->
+        <div class="flex items-center justify-center text-4xl text-blue-500 mt-4">
+          🚢
+        </div>
+        <!-- Text Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">Sea Shipping Cargo</h3>
+          <p class="mt-4 text-sm text-gray-600">
+            Onatech Cargo provides comprehensive customer service and solutions for all your queries. We are one step ahead in providing you with ease and on-time delivery at your destination.
+          </p>
+          <!-- Button -->
+          <button class="mt-6 bg-blue-500 text-white underline px-4 py-2 rounded hover:bg-blue-600">
+            Sea Cargo
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <!-- Icon -->
+        <div class="flex items-center justify-center text-4xl text-blue-500 mt-4">
+          ✈️
+        </div>
+        <!-- Text Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">Air Freight Cargo</h3>
+          <p class="mt-4 text-sm text-gray-600">
+            Turning vision into reality with Cargo air freight, our air freight expert teams form long-term customer relationships based on confidence, professional communication, and dedication.
+          </p>
+          <!-- Button -->
+          <button class="mt-6 bg-blue-500 text-white underline px-4 py-2 rounded hover:bg-blue-600">
+            Express Air Freight
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <!-- Icon -->
+        <div class="flex items-center justify-center text-4xl text-blue-500 mt-4">
+          🏠
+        </div>
+        <!-- Text Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">Fulfillment Services for African Products</h3>
+          <p class="mt-4 text-sm text-gray-600">
+            We know you need to get your product stored and ready for fulfillment at a moment’s notice. That’s why A-List Acquisition has fulfillment centers in the USA & Canada.
+          </p>
+          <!-- Button -->
+          <button class="mt-6 bg-blue-500 text-white underline px-4 py-2 rounded hover:bg-blue-600">
+            Fulfillment for African Products
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <!-- Icon -->
+        <div class="flex items-center justify-center text-4xl text-blue-500 mt-4">
+          🏬
+        </div>
+        <!-- Text Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">Warehouse Fulfillment</h3>
+          <p class="mt-4 text-sm text-gray-600">
+            As an international logistics company, if you need warehouse space or want seasonal space, we remain thrilled to serve our customers. Clients can benefit from lower completion costs.
+          </p>
+          <!-- Button -->
+          <button class="mt-6 bg-blue-500 text-white underline px-4 py-2 rounded hover:bg-blue-600">
+            Warehouse Fulfillment
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <!-- Icon -->
+        <div class="flex items-center justify-center text-4xl text-blue-500 mt-4">
+          📑
+        </div>
+        <!-- Text Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800">US Custom Clearance</h3>
+          <p class="mt-4 text-sm text-gray-600">
+            Onatech Cargo is aware of all customs regulations. Our efficient and professional brokerage services help you with customs clearance. Our experts are here to guide you in organizing documentation.
+          </p>
+          <!-- Button -->
+          <button class="mt-6 bg-blue-500 text-white underline px-4 py-2 rounded hover:bg-blue-600">
+            US Custom Clearance
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Special Services Section -->
+  <section class="w-full bg-gray-100 py-12">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-bold text-gray-800">Our Special Services</h2>
+      <p class="text-gray-600 mt-2">
+        We provide Trucking and Freight Transport services with more than 8
+        years of delivery experience.
+      </p>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Service Cards -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img
+          src="./AnimePicture/jojo.jpg"
+          alt="AIR CARGO"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-bold text-gray-800">AIR CARGO</h3>
+          <p class="text-sm text-gray-600 mt-2">We ship your packages by air</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img
+          src="./AnimePicture/naruto.jpg"
+          alt="SEA CARGO"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-bold text-gray-800">SEA CARGO</h3>
+          <p class="text-sm text-gray-600 mt-2">Your parcels are sent in calm waters</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img
+          src="./AnimePicture/Obito.jpg"
+          alt="COMMERCIAL CARGO"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-bold text-gray-800">COMMERCIAL CARGO</h3>
+          <p class="text-sm text-gray-600 mt-2">We take care of your business parcels</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img
+          src="./AnimePicture/wallpaperflare_com_wallpaper.jpg"
+          alt="AIR CARGO"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-bold text-gray-800">AIR CARGO</h3>
+          <p class="text-sm text-gray-600 mt-2">We ship your packages by air</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img
+          src="./AnimePicture/téléchargement (2).jpg"
+          alt="AIR CARGO"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-bold text-gray-800">AIR CARGO</h3>
+          <p class="text-sm text-gray-600 mt-2">We ship your packages by air</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+        <img
+          src="./AnimePicture/0d558053-0e4b-48e6-987d-87f0245318d6.jpg"
+          alt="AIR CARGO"
+          class="w-full h-40 object-cover"
+        />
+        <div class="p-6 text-center">
+          <h3 class="text-lg font-bold text-gray-800">AIR CARGO</h3>
+          <p class="text-sm text-gray-600 mt-2">We ship your packages by air</p>
+        </div>
+      </div>
+      <!-- Add more services as needed -->
+    </div>
+  </section>
+
+  <section class="w-full py-16 px-4 mx-auto">
+    <div class="max-w-7xl mx-auto text-center">
+      <!-- Titre principal avec animation -->
+      <h2 class="flex justify-center text-4xl md:text-5xl font-bold space-x-4 mb-8">
+        <span>Our</span> <!-- Texte statique -->
+        <span id="animatedText" class="text-blue-500 fadeIn"></span> <!-- Texte animé -->
+        <span>Freights</span> <!-- Texte final -->
+      </h2>
+
+      <!-- Liste des phrases avec les chevrons -->
+      <ul class="text-left max-w-3xl mx-auto space-y-4">
+        <li class="flex items-center space-x-4 text-lg">
+          <div class="flex items-center justify-center w-8 h-8 bg-orange-500 rounded-full">
+            <svg class="text-white" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L8.293 1.707 13.586 7H0v2h13.586l-5.293 5.293L10 14l8-8-8-8z"/>
+            </svg>
+          </div>
+          <span>We provide air logistics assistance at each step of the route.</span>
+        </li>
+        <li class="flex items-center space-x-4 text-lg">
+          <div class="flex items-center justify-center w-8 h-8 bg-orange-500 rounded-full">
+            <svg class="text-white" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L8.293 1.707 13.586 7H0v2h13.586l-5.293 5.293L10 14l8-8-8-8z"/>
+            </svg>
+          </div>
+          <span>General air support.</span>
+        </li>
+        <li class="flex items-center space-x-4 text-lg">
+          <div class="flex items-center justify-center w-8 h-8 bg-orange-500 rounded-full">
+            <svg class="text-white" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L8.293 1.707 13.586 7H0v2h13.586l-5.293 5.293L10 14l8-8-8-8z"/>
+            </svg>
+          </div>
+          <span>Bulk-break amenity.</span>
+        </li>
+        <li class="flex items-center space-x-4 text-lg">
+          <div class="flex items-center justify-center w-8 h-8 bg-orange-500 rounded-full">
+            <svg class="text-white" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L8.293 1.707 13.586 7H0v2h13.586l-5.293 5.293L10 14l8-8-8-8z"/>
+            </svg>
+          </div>
+          <span>Complete help in documentation, packaging, warehouse, and shipping.</span>
+        </li>
+        <li class="flex items-center space-x-4 text-lg">
+          <div class="flex items-center justify-center w-8 h-8 bg-orange-500 rounded-full">
+            <svg class="text-white" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L8.293 1.707 13.586 7H0v2h13.586l-5.293 5.293L10 14l8-8-8-8z"/>
+            </svg>
+          </div>
+          <span>Help in customs brokerage.</span>
+        </li>
+        <li class="flex items-center space-x-4 text-lg">
+          <div class="flex items-center justify-center w-8 h-8 bg-orange-500 rounded-full">
+            <svg class="text-white" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L8.293 1.707 13.586 7H0v2h13.586l-5.293 5.293L10 14l8-8-8-8z"/>
+            </svg>
+          </div>
+          <span>Pick-up and delivery at the door.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="freightStats" class="bg-gray-100 py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Our Success Freights</h2>
+      <p class="text-gray-600">
+        We deliver the best services to support your logistics and shipping needs globally.
+      </p>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 grid gap-8 grid-cols-1 md:grid-cols-3 text-center">
+      <!-- Trucking -->
+      <div id="trucking" class="bg-white shadow-lg rounded-lg p-6 hidden">
+        <h3 id="truckingCount" class="text-4xl font-bold text-blue-600">0+</h3>
+        <p class="text-gray-800 font-semibold mt-2">Trucking Freight</p>
+        <p class="text-gray-600 mt-1">Delivered on time with professional support.</p>
+      </div>
+      <!-- Air -->
+      <div id="air" class="bg-white shadow-lg rounded-lg p-6 hidden">
+        <h3 id="airCount" class="text-4xl font-bold text-blue-600">0+</h3>
+        <p class="text-gray-800 font-semibold mt-2">Air Freight</p>
+        <p class="text-gray-600 mt-1">Fast and efficient air delivery worldwide.</p>
+      </div>
+      <!-- Sea -->
+      <div id="sea" class="bg-white shadow-lg rounded-lg p-6 hidden">
+        <h3 id="seaCount" class="text-4xl font-bold text-blue-600">0+</h3>
+        <p class="text-gray-800 font-semibold mt-2">Sea Freight</p>
+        <p class="text-gray-600 mt-1">Affordable and reliable shipping solutions.</p>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto px-4 grid gap-8 grid-cols-1 md:grid-cols-3">
+      <!-- Logo and Description -->
+      <div class="flex flex-col items-center md:items-start">
+        <img
+          src="AnimePicture/uchiwa.jpg" 
+          alt="Onatech Cargo Logo"
+          class="h-12 mb-4"
+        />
+        <p class="text-sm text-center md:text-left">
+          Onatech Cargo is a well-equipped company with modern technology. Our cargo services meet international requirements with a talented team and are dedicated to fulfilling our clients’ needs.
+        </p>
+        <div class="flex justify-center md:justify-start mt-4 space-x-4">
+          <a href="#" class="text-white hover:text-blue-400">
+            <span class="icon">🔵</span> <!-- Remplacez par l'icône Facebook -->
+          </a>
+          <a href="#" class="text-white hover:text-blue-400">
+            <span class="icon">📸</span> <!-- Remplacez par l'icône Instagram -->
+          </a>
+          <a href="#" class="text-white hover:text-blue-400">
+            <span class="icon">🔗</span> <!-- Remplacez par l'icône LinkedIn -->
+          </a>
+          <a href="#" class="text-white hover:text-blue-400">
+            <span class="icon">▶️</span> <!-- Remplacez par l'icône YouTube -->
+          </a>
+        </div>
+      </div>
+
+      <!-- Our Services -->
+      <div class="text-center md:text-left">
+        <h3 class="font-semibold text-lg mb-4">Our Services</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="hover:text-blue-400">
+              Sea Cargo
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-blue-400">
+              Express Air Freight
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-blue-400">
+              Cargo Fulfilment
+            </a>
+          </li>
+          <li>
+            <a href="#" class="hover:text-blue-400">
+              US Custom Clearance
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Us -->
+      <div class="text-center md:text-left">
+        <h3 class="font-semibold text-lg mb-4">Contact Us</h3>
+        <p class="mb-2">
+          <span class="icon">📞</span> +1 470-823-0808
+        </p>
+        <p class="mb-4">
+          <span class="icon">📧</span> info@onatechcargo.com
+        </p>
+        <form>
+          <input
+            type="email"
+            placeholder="Email"
+            class="w-full p-2 mb-2 bg-gray-800 text-white rounded"
+          />
+          <button
+            type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="mt-8 text-center text-sm text-gray-400">
+      All Rights Reserved © 2024 Onatech Cargo
+    </div>
+  </footer>
+
+
+  <script>
+    // Sidebar toggle
+    
+    const sidebarToggler = document.getElementById("sidebar-toggler");
+    const sidebar = document.getElementById("sidebar");
+    sidebarToggler.addEventListener("click", () => {
+      sidebar.classList.toggle("-translate-x-full");
+    });
+
+    // Navbar animation on scroll
+    const mainHeader = document.getElementById("main-header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        mainHeader.classList.add("bg-white", "text-black");
+        mainHeader.classList.remove("bg-blue-700", "text-white");
+      } else {
+        mainHeader.classList.remove("bg-white", "text-black");
+        mainHeader.classList.add("bg-blue-700", "text-white");
+      }
+    });
+
+    // Texte animé
+    const countries = ["CHINA", "USA", "FRANCE", "GERMANY", "JAPAN", "INDIA"];
+    let currentCountryIndex = 0;
+    let currentCharIndex = 0;
+    let isErasing = false;
+
+    const animatedText = document.getElementById("animated-text");
+
+    const animatedText2 = "successful";
+    let currentCharIndex2 = 0;
+    const animatedTextElement2 = document.getElementById('animatedText');
+    const targetValues = {
+      trucking: 1050,
+      air: 900,
+      sea: 600,
+    };
+
+    // Variables d'état
+    let stats = {
+      trucking: 0,
+      air: 0,
+      sea: 0,
+    };
+
+    // Références aux éléments
+    const truckingElement = document.getElementById('trucking');
+    const airElement = document.getElementById('air');
+    const seaElement = document.getElementById('sea');
+    const truckingCount = document.getElementById('truckingCount');
+    const airCount = document.getElementById('airCount');
+    const seaCount = document.getElementById('seaCount');
+
+    const section = document.getElementById('freightStats');
+    
+    // Observer pour détecter la visibilité de la section
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        // Section visible, on lance l'animation
+        animateStats();
+        // On affiche les éléments cachés
+        truckingElement.classList.remove('hidden');
+        airElement.classList.remove('hidden');
+        seaElement.classList.remove('hidden');
+      }
+    }, { threshold: 0.5 });
+
+    observer.observe(section);
+
+    // Fonction pour animer les statistiques
+    function animateStats() {
+      const interval = setInterval(() => {
+        if (stats.trucking < targetValues.trucking) {
+          stats.trucking += 10;
+          truckingCount.textContent = `${stats.trucking}+`;
+        }
+        if (stats.air < targetValues.air) {
+          stats.air += 10;
+          airCount.textContent = `${stats.air}+`;
+        }
+        if (stats.sea < targetValues.sea) {
+          stats.sea += 5;
+          seaCount.textContent = `${stats.sea}+`;
+        }
+
+        // Si toutes les valeurs sont atteintes, on arrête l'intervalle
+        if (stats.trucking >= targetValues.trucking &&
+            stats.air >= targetValues.air &&
+            stats.sea >= targetValues.sea) {
+          clearInterval(interval);
+        }
+      }, 50); // Ajustez l'intervalle pour ajuster la vitesse de l'animation
+    }
+
+    function animateText2() {
+      if (currentCharIndex2 < animatedText2.length) {
+        animatedTextElement2.textContent = animatedText2.slice(0, currentCharIndex2 + 1);
+        currentCharIndex2++;
+      } else {
+        currentCharIndex2 = 0;
+        animatedTextElement2.textContent = "";
+      }
+    }
+
+    setInterval(animateText2, 150); 
+
+    function animateText() {
+      const currentCountry = countries[currentCountryIndex];
+
+      if (!isErasing && currentCharIndex < currentCountry.length) {
+        animatedText.textContent = currentCountry.slice(0, currentCharIndex + 1);
+        currentCharIndex++;
+      } else if (!isErasing && currentCharIndex === currentCountry.length) {
+        setTimeout(() => (isErasing = true), 1500);
+      } else if (isErasing && currentCharIndex > 0) {
+        animatedText.textContent = currentCountry.slice(0, currentCharIndex - 1);
+        currentCharIndex--;
+      } else if (isErasing && currentCharIndex === 0) {
+        isErasing = false;
+        currentCountryIndex = (currentCountryIndex + 1) % countries.length;
+      }
+
+      setTimeout(animateText, isErasing ? 100 : 200);
+    }
+
+    animateText();
+  </script>
+</body>
+</html>
